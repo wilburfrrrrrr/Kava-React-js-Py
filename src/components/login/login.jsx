@@ -19,6 +19,7 @@ export default function Login() {
 		event.preventDefault();
 		try {
 			const response = await login({ email, password });
+			// localStorage.setItem('token', response.token);
 			console.log(response);
 		}
 		catch(error){

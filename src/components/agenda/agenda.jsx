@@ -53,7 +53,13 @@ export default function Agenda() {
 			<div className="field">
 				<label>
 					Servicio:
-					<input type="text" value={service} onChange={handleServiceChange} className="form-control"/>
+					<select value={service} onChange={handleServiceChange} className="form-control">
+					<option value="">Seleccione una membresía</option>
+					<option value="1">Circuito Spa</option>
+					<option value="2">Masajes</option>
+					<option value="3">Tratamientos Faciales</option>
+					<option value="4">Rituales de Belleza</option>
+					</select>
 				</label>
 			</div>
 			<div className="field">

@@ -49,14 +49,17 @@ export default function Register() {
 	}
 
 	const handleRegister = (event) => {
+		console.log("entering");
 		event.preventDefault();
 		try {
+			console.log("check before creating");
 			if (password !== passwordConfirmation) {
 				throw new Error("Las contraseñas no coinciden");
 			}
 			const response = createUser({ email, password, name, lastName, membership });
 			console.log(response);
 		} catch (error) {
+			console.log("wtf");
 			setError(error);	
 		}
 		
@@ -68,6 +71,18 @@ export default function Register() {
 	  <h1>Kava</h1>
 	  <h2>Registro</h2>
 	  <form onSubmit={handleRegister} className="form">
+	  	<div className="form-group">
+		<label>
+		  Nombre:
+		  <input type="text" value={name} onChange={handleNameChange} className="form-control" />
+		</label>
+		</div>
+		<div className="form-group">
+		<label>
+		  Apellido:
+		  <input type="text" value={lastName} onChange={handleLastNameChange} className="form-control"/>
+		</label>
+		</div>
 		<div className="form-group">
 		<label>
 		  Email:
@@ -88,21 +103,16 @@ export default function Register() {
 		</div>
 		<div className="form-group">
 		<label>
-		  Nombre:
-		  <input type="text" value={name} onChange={handleNameChange} className="form-control"/>
-		</label>
-		</div>
-		<div className="form-group">
-		<label>
-		  Apellido:
-		  <input type="text" value={lastName} onChange={handleLastNameChange} className="form-control"/>
-		</label>
-		</div>
-		<div className="form-group">
-		<label>
 		  Membresía:
-		  <input type="text" value={membership} onChange={handleMembershipChange} className="form-control"/>
+		  {/* <input type="text" value={membership} onChange={handleMembershipChange} className="form-control"/> */}
+		<select value={membership} onChange={handleMembershipChange} className="form-control">
+			<option value="">Seleccione una membresía</option>		  	
+			<option value="1">Esencial</option>
+		  	<option value="2">Premium</option>
+			<option value="3">VIP</option>
+		</select>
 		</label>
+
 		</div>
 		<div className="form-group">
 		{error && <div style={{ color: 'red' }}>{error}</div>}

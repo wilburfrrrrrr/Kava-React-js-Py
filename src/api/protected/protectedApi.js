@@ -1,15 +1,14 @@
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-// const BASE_URL = 'http://localhost:8000';
-export async function apiClient(endpoint, { body, ...customConfig } = {}){
-	console.log(process.env);
-	console.log(BASE_URL);
+
+export async function protectedApi(endpoint, { body, ...customConfig } = {}){
 	const headers = { 'Content-Type': 'application/json' };
+	const token = localStorage.getItem('token');
 	const config = {
-		method: body ? 'POST' : 'GET',
 		...customConfig,
 		headers: {
 			...headers,
 			...customConfig.headers,
+			Authorization: `Bearer ${token}`,
 		},
 	};
 
