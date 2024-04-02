@@ -1,5 +1,5 @@
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-// const BASE_URL = 'http://localhost:8000';
+
 export async function apiClient(endpoint, { body, ...customConfig } = {}){
 	console.log(process.env);
 	console.log(BASE_URL);
@@ -14,12 +14,16 @@ export async function apiClient(endpoint, { body, ...customConfig } = {}){
 	};
 
 	if(body){
+		console.log(body);
 		config.body = await JSON.stringify(body);
+		console.log(config.body);
 	}
 
 	try {
+		console.log(config);
 		const response = await fetch(`${BASE_URL}/${endpoint}`, config);
 		const data = await response.json();
+		console.log(data);
 
 		if(response.ok){
 			return data;

@@ -1,3 +1,24 @@
+.general {
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header {
+	display: flex;
+	background-color: #c7ff6c;
+	padding: 20px;
+	text-align: center;
+	color: white;
+  }
+
+.container {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
 .title {
 	font-size: 2em;
 	color: #333;
@@ -10,13 +31,44 @@
 	margin-bottom: 20px;
   }
   
-  .link {
-	color: #007bff;
+link {
+	color: #040507;
 	text-decoration: none;
 	margin: 5px;
   }
   
-  .link:hover {
+link:hover {
 	text-decoration: underline;
   }
   
+  button {
+	background-color: #84b458;
+	color: #f4ff8f;
+	border: none;
+	padding: 10px 20px;
+	margin: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	text-decoration: none;
+  }
+
+  button:hover {
+	background-color: #f4ff8f;
+	color: #fff;
+  }
+
+  link {
+	color: white;
+	text-decoration: none;
+  }
+
+.each-slide{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	height: 300px;
+	color: #fff;
+	font-size: 20px;
+}

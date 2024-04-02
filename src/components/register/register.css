@@ -1,3 +1,10 @@
+.liu-jian mao cao-regular {
+	font-family: "Liu Jian Mao Cao", cursive;
+	font-weight: 400;
+	font-style: normal;
+  }
+  
+
 .container {
 	max-width: 400px;
 	margin: 0 auto;
@@ -5,7 +12,17 @@
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	font-family: 'liu-jian mao cao-regular';
   }
+
+  header {
+	display: flex;
+	background-color: #c7ff6c;
+	padding: 20px;
+	text-align: center;
+	color: white;
+  }
+
   
   .form {
 	display: flex;
@@ -28,7 +45,7 @@
   }
   
   .form-submit {
-	background-color: #007bff;
+	background-color: #84b458;
 	color: white;
 	border: none;
 	border-radius: 3px;
@@ -37,6 +54,27 @@
   }
   
   .form-submit:hover {
-	background-color: #0056b3;
+	background-color: #f4ff8f;
   }
   
+  button {
+	background-color: #84b458;
+	color: #f4ff8f;
+	border: none;
+	padding: 10px 20px;
+	margin: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	text-decoration: none;
+  }
+
+  button:hover {
+	background-color: #f4ff8f;
+	color: #fff;
+  }
+
+  link {
+	color: white;
+	text-decoration: none;
+  }

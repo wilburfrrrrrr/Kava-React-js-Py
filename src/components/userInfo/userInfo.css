@@ -1,3 +1,18 @@
+.liu-jian mao cao-regular {
+	font-family: "Liu Jian Mao Cao", cursive;
+	font-weight: 400;
+	font-style: normal;
+  }  
+
+  
+  header {
+	display: flex;
+	background-color: #c7ff6c;
+	padding: 20px;
+	text-align: center;
+	color: white;
+  }
+
 .container {
 	max-width: 600px;
 	margin: 0 auto;
@@ -25,16 +40,51 @@
 	margin-left: 10px;
   }
   
-  /* .user-info-button {
-	background-color: #007bff;
-	color: white;
+  button {
+	background-color: #84b458;
+	color: #f4ff8f;
 	border: none;
-	border-radius: 3px;
-	padding: 8px 16px;
+	padding: 10px 20px;
+	margin: 5px;
+	font-size: 16px;
 	cursor: pointer;
+	border-radius: 5px;
+	text-decoration: none;
+  }
+
+  button:hover {
+	background-color: #f4ff8f;
+	color: #fff;
+  }
+
+  link {
+	color: white;
+	text-decoration: none;
   }
   
-  .user-info-button:hover {
-	background-color: #0056b3;
-  } */
+  .agenda-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+  }
+  
+  .agenda-table th,
+  .agenda-table td {
+	border: 1px solid #dee2e6;
+	padding: 8px;
+	text-align: left;
+  }
+  
+  .agenda-table th {
+	background-color: #007bff;
+	color: white;
+  }
+  
+  .agenda-table tbody tr:nth-child(even) {
+	background-color: #f8f9fa;
+  }
+  
+  .agenda-table tbody tr:hover {
+	background-color: #e9ecef;
+  }
   

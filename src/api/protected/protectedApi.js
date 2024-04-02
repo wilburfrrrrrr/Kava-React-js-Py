@@ -3,6 +3,7 @@ const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 export async function protectedApi(endpoint, { body, ...customConfig } = {}){
 	const headers = { 'Content-Type': 'application/json' };
 	const token = localStorage.getItem('token');
+	console.log(token);
 	const config = {
 		...customConfig,
 		headers: {
@@ -13,7 +14,9 @@ export async function protectedApi(endpoint, { body, ...customConfig } = {}){
 	};
 
 	if(body){
+		console.log(body);
 		config.body = await JSON.stringify(body);
+		console.log(config.body);
 	}
 
 	try {

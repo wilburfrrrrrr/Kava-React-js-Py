@@ -2,6 +2,7 @@ import React from "react";
 import "./register.css";
 import { Link } from "react-router-dom";
 import { createUser } from "../../api/user/apiUser";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
 	const [email, setEmail] = React.useState('');
@@ -11,6 +12,8 @@ export default function Register() {
 	const [lastName, setLastName] = React.useState('');
 	const [membership, setMembership] = React.useState('');
 	const [error, setError] = React.useState(null);
+	const navigate = useNavigate();
+
 
 	const handleEmailChange = (event) => {
 		return (
@@ -52,14 +55,16 @@ export default function Register() {
 		console.log("entering");
 		event.preventDefault();
 		try {
-			console.log("check before creating");
+			let user_membership = parseInt(membership);
 			if (password !== passwordConfirmation) {
 				throw new Error("Las contraseñas no coinciden");
 			}
-			const response = createUser({ email, password, name, lastName, membership });
+			const response = createUser({ name, last_name: lastName, email, password, memberships: user_membership});
 			console.log(response);
+			navigate('/login');
+
 		} catch (error) {
-			console.log("wtf");
+			console.log(error);
 			setError(error);	
 		}
 		
@@ -74,38 +79,38 @@ export default function Register() {
 	  	<div className="form-group">
 		<label>
 		  Nombre:
-		  <input type="text" value={name} onChange={handleNameChange} className="form-control" />
+		  <input type="text" value={name} onChange={handleNameChange} className="form-control" required minLength={4} maxLength={100}/>
 		</label>
 		</div>
 		<div className="form-group">
 		<label>
 		  Apellido:
-		  <input type="text" value={lastName} onChange={handleLastNameChange} className="form-control"/>
+		  <input type="text" value={lastName} onChange={handleLastNameChange} className="form-control" required minLength={4} maxLength={100}/>
 		</label>
 		</div>
 		<div className="form-group">
 		<label>
 		  Email:
-		  <input type="email" value={email} onChange={handleEmailChange} className="form-control"/>
+		  <input type="email" value={email} onChange={handleEmailChange} className="form-control" required/>
 		</label>
 		</div>
 		<div className="form-group">
 		<label>
 		  Contraseña:
-		  <input type="password" value={password} onChange={handlePasswordChange} className="form-control"/>
+		  <input type="password" value={password} onChange={handlePasswordChange} className="form-control" required minLength={8} maxLength={20}/>
 		</label>
 		</div>
 		<div className="form-group">
 		<label>
 		  Confirmar contraseña:
-		  <input type="password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="form-control"/>
+		  <input type="password" value={passwordConfirmation} onChange={handlePasswordConfirmationChange} className="form-control" required minLength={8} maxLength={20}/>
 		</label>
 		</div>
 		<div className="form-group">
 		<label>
 		  Membresía:
 		  {/* <input type="text" value={membership} onChange={handleMembershipChange} className="form-control"/> */}
-		<select value={membership} onChange={handleMembershipChange} className="form-control">
+		<select value={membership} onChange={handleMembershipChange} className="form-control" required>
 			<option value="">Seleccione una membresía</option>		  	
 			<option value="1">Esencial</option>
 		  	<option value="2">Premium</option>
@@ -115,11 +120,11 @@ export default function Register() {
 
 		</div>
 		<div className="form-group">
-		{error && <div style={{ color: 'red' }}>{error}</div>}
+		{error && <div style={{ color: 'red' }}>{error.message}</div>}
 		<button type="submit" className="form-submit">Registrarse</button>
 		</div>
 		</form>
-	  <Link to="/home">Home</Link>
+	  <Link to="/">Home</Link>
 	</div>
   );
 }

@@ -1,0 +1,39 @@
+/* ImageSlider.css */
+.slider {
+	position: relative;
+	max-width: 100%;
+	overflow: hidden;
+  }
+  
+  .image {
+	width: 100%; /* Ensures image is responsive */
+	height: auto;
+  }
+  
+  .prev,
+  .next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-size: 20px;
+	padding: 10px 15px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  .prev {
+	left: 0;
+  }
+  
+  .next {
+	right: 0;
+  }
+  
+  .prev:hover,
+  .next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+  }
+  
